@@ -200,6 +200,11 @@ plt.tight_layout()
 plt.show()
 ```
 
+- **`![Movies and TV Shows Bar Chart]`**
+- **`(Images\Null_Value_Bar_chart.png)`**
+
+
+
 #### Task 18: Movies and TV Shows Released Each Year (Bar Chart)
 ```python
 netflix_titles['release_year'].value_counts().plot(kind='bar', width=0.7)
