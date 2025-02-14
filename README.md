@@ -69,6 +69,7 @@ netflix_titles['country'] = netflix_titles['country'].apply(lambda x: x if isins
 ```python
 netflix_titles['type'].value_counts()
 ```
+![Movies and TV Shows Bar Chart](Images/Output_Images/Task5.PNG)
 
 #### Task 6: Display the distinct release years represented in the dataset
 ```python
