@@ -200,7 +200,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Movies and TV Shows Bar Chart](E:\Netfix_analysis\Images\Null_Value_Bar_chart.png)
+![Movies and TV Shows Bar Chart](Images\Null_Value_Bar_chart.png)
 
 
 #### Task 18: Movies and TV Shows Released Each Year (Bar Chart)
