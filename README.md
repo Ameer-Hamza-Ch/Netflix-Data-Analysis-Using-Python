@@ -69,17 +69,19 @@ netflix_titles['country'] = netflix_titles['country'].apply(lambda x: x if isins
 ```python
 netflix_titles['type'].value_counts()
 ```
-![Movies and TV Shows Bar Chart](Images/Output_Images/Task5.PNG)
-
+![task5](Images/Output_Images/Task5.PNG)
+5
 #### Task 6: Display the distinct release years represented in the dataset
 ```python
 netflix_titles['release_year'].unique()
 ```
+![task6](Images/Output_Images/Task6.PNG)
 
 #### Task 7: Movies and TV Shows Released Each Year
 ```python
 netflix_titles.groupby('release_year')['type'].count()
 ```
+![task7](Images/Output_Images/task7.PNG)
 
 #### Task 8: Top 5 Most Frequent Genres
 ```python
@@ -90,11 +92,7 @@ for genres in netflix_titles['listed_in']:
             genre_counter[genre.strip()] += 1
 genre_counter.most_common(5)
 ```
-
-#### Task 8: Titles Added to Netflix Each Year
-```python
-netflix_titles.groupby('year_added')['title'].count().sort_values(ascending=False)
-```
+![task8](Images/Output_Images/task8.PNG)
 
 #### Task 9: Number of Titles Featuring Om Puri
 ```python
@@ -105,6 +103,7 @@ for actors in netflix_titles['cast']:
             actor_counter[actor.strip()] += 1
 print(f"Om Puri was cast in {actor_counter['Om Puri']} Movies/TV Shows")
 ```
+![task9](Images/Output_Images/task9.PNG)
 
 #### Task 10: Top 5 Countries Producing the Most Content
 ```python
@@ -115,10 +114,13 @@ for countries in netflix_titles['country']:
             country_counter[country.strip()] += 1
 country_counter.most_common(5)
 ```
+![task10](Images/Output_Images/task10.PNG)
 
-### Custom Exploding Function
+#### Task 11: Identify how many movies in the Netflix dataset are classified as 'Music & Musicals', produced in India.
 
-#### Task 20: Expand DataFrame Based on Two Columns Containing Lists
+#### Custom Exploding Function
+
+#### Expanding DataFrame Based on Two Columns Containing Lists:
 ```python
 def custom_explode(df, col1, col2):
     new_rows = []
@@ -147,26 +149,33 @@ def custom_explode(df, col1, col2):
 
 exploded_df = custom_explode(netflix_titles, 'listed_in', 'country')
 ```
+![Exploded dataframe](Images/Output_Images/exploded_df.PNG)
 
-#### Task 11: Movies and TV Shows Released Each Year
+#### 
 ```python
-netflix_titles.groupby(['release_year', 'type'])['type'].count()
+len(exploded_df[((exploded_df['type'] == 'Movie') & 
+                 (exploded_df['listed_in'] == 'Music & Musicals')) & 
+                 (exploded_df['country'] == 'India')])
 ```
+![task11](Images/Output_Images/india_custom.PNG)
 
 #### Task 12: Titles Released in 2020
 ```python
 netflix_titles[netflix_titles['release_year'] == 2020]['title']
 ```
+![task12](Images/Output_Images/task12.PNG)
 
 #### Task 13: Titles Produced in India
 ```python
 netflix_titles[netflix_titles['country'] == 'India']['title']
 ```
+![task13](Images/Output_Images/task13.PNG)
 
 #### Task 14: Top 10 Directors
 ```python
 netflix_titles['director'].value_counts().sort_values(ascending=False).head(10)
 ```
+![task14](Images/Output_Images/task14.PNG)
 
 #### Task 15: Maximum Duration of a Movie
 ```python
@@ -175,6 +184,7 @@ movies[['duration_value', 'duration_unit']] = movies['duration'].str.extract(r'(
 movies['duration_value'] = pd.to_numeric(movies['duration_value'])
 movies['duration_value'].max()
 ```
+![task15](Images/Output_Images/task15.PNG)
 
 #### Task 16: Maximum Duration of a TV Show
 ```python
@@ -182,12 +192,25 @@ TV_shows = netflix_titles[netflix_titles['type'] == 'TV Show'].copy()
 TV_shows[['duration_value', 'duration_unit']] = TV_shows['duration'].str.extract(r'(\d+) (:min|Season(?:s)?)', expand=True)
 TV_shows['duration_value'].max()
 ```
+![task16](Images/Output_Images/task16.PNG)
+
+#### Task 17: Titles Added to Netflix Each Year
+```python
+netflix_titles.groupby('year_added')['title'].count().sort_values(ascending=False)
+```
+![task17](Images/Output_Images/task17.PNG)
+
+#### Task 18: Movies and TV Shows Released Each Year
+```python
+netflix_titles.groupby(['release_year', 'type'])['type'].count()
+```
+![task18](Images/Output_Images/task18.PNG)
 
 ---
 
 ### 4. Visualizations
 
-#### Task 17: Null Values in the Dataset
+#### Task 19: Null Values in the Dataset
 ```python
 missing_values = netflix_titles.isnull().sum()
 missing_df = pd.DataFrame(missing_values, columns=['Missing Value(count)'])
@@ -201,18 +224,20 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Movies and TV Shows Bar Chart](Images/Null_Value_Bar_chart.png)
+![Null Values Per Column Bar Chart](Images/Null_Value_Bar_chart.png)
 
 
-#### Task 18: Movies and TV Shows Released Each Year (Bar Chart)
+#### Task 20: Movies and TV Shows Released Each Year (Bar Chart)
 ```python
 netflix_titles['release_year'].value_counts().plot(kind='bar', width=0.7)
 ```
+![Movies and TV Shows per year Bar Chart](Images\movies_and_shows_per_year_bar_chart.png)
 
-#### Task 19: Number of Movies and TV Shows (Bar Graph)
+#### Task 21: Number of Movies and TV Shows (Bar Graph)
 ```python
 netflix_titles['type'].value_counts().plot(kind='bar')
 ```
+![Movies and TV Shows Bar Chart](Images\Number_of_movies_Shows_bar_chart.png)
 
 ---
 
