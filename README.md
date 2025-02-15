@@ -114,7 +114,7 @@ for countries in netflix_titles['country']:
             country_counter[country.strip()] += 1
 country_counter.most_common(5)
 ```
-![task10](Images/Output_Images/task10.PNG)
+![task10](Images/Output_Images/task 10.PNG)
 
 #### Task 11: Identify how many movies in the Netflix dataset are classified as 'Music & Musicals', produced in India.
 
