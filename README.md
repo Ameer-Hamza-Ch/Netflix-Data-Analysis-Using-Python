@@ -223,22 +223,25 @@ plt.xticks(rotation='vertical')
 plt.tight_layout()
 plt.show()
 ```
-
+####
 ![Null Values Per Column Bar Chart](Images/Null_Value_Bar_chart.png)
-
+####
 
 #### Task 20: Movies and TV Shows Released Each Year (Bar Chart)
 ```python
 netflix_titles['release_year'].value_counts().plot(kind='bar', width=0.7)
 ```
-![Movies and TV Shows per year Bar Chart](Images\movies_and_shows_per_year_bar_chart.png)
+####
+![Movies and TV Shows per year Bar Chart](Images/movies_and_shows_per_year_bar_chart.png)
+####
 
 #### Task 21: Number of Movies and TV Shows (Bar Graph)
 ```python
 netflix_titles['type'].value_counts().plot(kind='bar')
 ```
-![Movies and TV Shows Bar Chart](Images\Number_of_movies_Shows_bar_chart.png)
-
+####
+![Movies and TV Shows Bar Chart](Images/Number_of_movies_Shows_bar_chart.png)
+####
 ---
 
 ## Conclusion
